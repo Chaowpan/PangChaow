@@ -2,7 +2,7 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ลิงก์ของพะแพง</title>
   <style>
     * {
@@ -24,7 +24,7 @@
       background-color: white;
       padding: 2rem;
       border-radius: 16px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
       text-align: center;
       width: 90%;
       max-width: 500px;
@@ -60,18 +60,37 @@
       border-radius: 12px;
       font-size: 1.1rem;
       transition: background-color 0.3s;
+      cursor: pointer;
     }
 
     .link-btn:hover {
       background-color: #e09e00;
     }
 
-    .prank-list {
-      display: none;
+    .button-group {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
       margin-top: 1rem;
+    }
+
+    .button-group .link-btn {
+      flex: 1;
+      min-width: 180px;
+      text-align: center;
+    }
+
+    .prank-list, .prank-listtwo {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
       text-align: left;
-      max-height: 60vh;
-      overflow-y: auto;
+      margin-top: 1rem;
+    }
+
+    .prank-list.show, .prank-listtwo.show {
+      max-height: 1000px;
     }
 
     .prank-item {
@@ -99,10 +118,12 @@
       h1 {
         font-size: 1.5rem;
       }
+
       .link-btn {
         font-size: 1rem;
         padding: 0.8rem;
       }
+
       .prank-item img {
         width: 50px;
         height: 50px;
@@ -122,49 +143,55 @@
       <a href="http://www.youtube.com/@creamchannel9158" target="_blank" class="link-btn">
         📺 ช่อง YouTube พะแพง
       </a>
-    
+
       <a href="https://line.me/R/ti/p/~@721xykuw" target="_blank" class="link-btn">
         💬 แอดไลน์เพื่อดูดวงเชิงลึกกับพะแพง
       </a>
-    
+
       <a href="https://ezdn.app/Panisa" target="_blank" class="link-btn">
         💰 โดเนทแกล้งผ่านลิงค์นี้ อ่านขั้นตอนการโดเนทให้ครบถ้วนเด้ออ
       </a>
-    
-      <button class="link-btn" onclick="togglePranks()">📋 รายการแกล้ง</button>
-    </div>
-    
 
+      <div class="button-group">
+        <button class="link-btn" onclick="togglePranks()">📋 รายการส่งของขวัญแกล้ง</button>
+        <button class="link-btn" onclick="togglePrankstwo()">📋 รายการส่งของขวัญดูดวง</button>
+      </div>
+    </div>
+
+    <!-- รายการแกล้ง -->
     <div class="prank-list" id="prankList">
-      <!-- รายการแกล้ง 20 รายการ -->
-      <!-- เปลี่ยนรูป/ข้อความตามต้องการ -->
       <div class="prank-item"><img src="img/d56945782445b0b8c8658ed44f894c7b~tplv-obj.webp" /><span>รักนะคนส่งใจส้ม</span></div>
-      <div class="prank-item"><img src="img/3f02fa9594bd1495ff4e8aa5ae265eef~tplv-obj.webp" /><span>ดีดมะกอกผู้หญิง 1 ที</span></div>
-      <div class="prank-item"><img src="https://via.placeholder.com/60" /><span>แกล้งบอกถูกหวย</span></div>
-      <div class="prank-item"><img src="https://via.placeholder.com/60" /><span>แกล้งทำมือถือหาย</span></div>
+      <div class="prank-item"><img src="img/3f02fa9594bd1495ff4e8aa5ae265eef~tplv-obj.webp" /><span>ดีดมะกอกผู้หญิง 1 ที / โด 1 บาท</span></div>
+      <div class="prank-item"><img src="img/802a21ae29f9fae5abe3693de9f874bd~tplv-obj.webp" /><span>ดีดมะกอกผู้ชาย 1 ที / โด 1 บาท</span></div>
+      <div class="prank-item"><img src="img/a4c4dc437fd3a6632aba149769491f49.png~tplv-obj.webp" /><span>หอมแก้ม / โด 1 บาท</span></div>
       <div class="prank-item"><img src="https://via.placeholder.com/60" /><span>แกล้งปิดเฟสแล้วหายไป</span></div>
-      <div class="prank-item"><img src="https://via.placeholder.com/60" /><span>แกล้งบอกจะย้ายประเทศ</span></div>
-      <div class="prank-item"><img src="https://via.placeholder.com/60" /><span>แกล้งงอนแล้วหายตัว</span></div>
-      <div class="prank-item"><img src="https://via.placeholder.com/60" /><span>แกล้งส่งข้อความลับ</span></div>
-      <div class="prank-item"><img src="https://via.placeholder.com/60" /><span>แกล้งขอยืมเงิน</span></div>
-      <div class="prank-item"><img src="https://via.placeholder.com/60" /><span>แกล้งเป็นแฟนเก่า</span></div>
-      <div class="prank-item"><img src="https://via.placeholder.com/60" /><span>แกล้งบอกว่าโดนจับ</span></div>
-      <div class="prank-item"><img src="https://via.placeholder.com/60" /><span>แกล้งทำเป็นลืมวันเกิด</span></div>
-      <div class="prank-item"><img src="https://via.placeholder.com/60" /><span>แกล้งเป็นคนแปลกหน้า</span></div>
-      <div class="prank-item"><img src="https://via.placeholder.com/60" /><span>แกล้งว่าติดเกณฑ์ทหาร</span></div>
-      <div class="prank-item"><img src="https://via.placeholder.com/60" /><span>แกล้งโทรหาแบบไม่พูด</span></div>
-      <div class="prank-item"><img src="https://via.placeholder.com/60" /><span>แกล้งปลอมเอกสาร</span></div>
-      <div class="prank-item"><img src="https://via.placeholder.com/60" /><span>แกล้งโดนไล่ออก</span></div>
-      <div class="prank-item"><img src="https://via.placeholder.com/60" /><span>แกล้งย้ายโรงเรียน</span></div>
-      <div class="prank-item"><img src="https://via.placeholder.com/60" /><span>แกล้งแต่งงานปลอม</span></div>
-      <div class="prank-item"><img src="https://via.placeholder.com/60" /><span>แกล้งสั่งอาหารแล้วไม่ไปรับ</span></div>
+      <!-- เพิ่มรายการอื่น ๆ ตามต้องการ -->
+    </div>
+
+    <!-- รายการดูดวง -->
+    <div class="prank-listtwo" id="prankListtwo">
+      <div class="prank-item"><img src="img/d56945782445b0b8c8658ed44f894c7b~tplv-obj.webp" /><span>รักนะคนส่งใจส้ม</span></div>
+      <div class="prank-item"><img src="img/a4c4dc437fd3a6632aba149769491f49.png~tplv-obj.webp" /><span>ถามได้ 1 คำถาม / โด 5 บาท</span></div>
+      <div class="prank-item"><img src="https://via.placeholder.com/60" /><span>แกล้งปิดเฟสแล้วหายไป</span></div>
+      <!-- เพิ่มรายการอื่น ๆ ตามต้องการ -->
     </div>
   </div>
 
   <script>
     function togglePranks() {
       const list = document.getElementById('prankList');
-      list.style.display = list.style.display === 'block' ? 'none' : 'block';
+      const listTwo = document.getElementById('prankListtwo');
+
+      list.classList.toggle('show');
+      listTwo.classList.remove('show');
+    }
+
+    function togglePrankstwo() {
+      const list = document.getElementById('prankList');
+      const listTwo = document.getElementById('prankListtwo');
+
+      listTwo.classList.toggle('show');
+      list.classList.remove('show');
     }
   </script>
 </body>
