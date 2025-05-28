@@ -27,7 +27,7 @@
       box-shadow: 0 4px 16px rgba(0,0,0,0.1);
       text-align: center;
       width: 90%;
-      max-width: 400px;
+      max-width: 500px;
     }
 
     .profile-img {
@@ -66,38 +66,46 @@
       background-color: #e09e00;
     }
 
-    @media (max-width: 480px) {
-      .container {
-        padding: 1.5rem;
-      }
+    .prank-list {
+      display: none;
+      margin-top: 1rem;
+      text-align: left;
+      max-height: 60vh;
+      overflow-y: auto;
+    }
 
+    .prank-item {
+      display: flex;
+      align-items: center;
+      margin: 1rem 0;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 0.5rem;
+    }
+
+    .prank-item img {
+      width: 60px;
+      height: 60px;
+      border-radius: 12px;
+      margin-right: 1rem;
+      object-fit: cover;
+    }
+
+    .prank-item span {
+      font-size: 1rem;
+      color: #333;
+    }
+
+    @media (max-width: 480px) {
       h1 {
         font-size: 1.5rem;
       }
-
       .link-btn {
         font-size: 1rem;
         padding: 0.8rem;
       }
-    }
-
-    @media (min-width: 768px) {
-      .container {
-        padding: 2.5rem;
-      }
-
-      h1 {
-        font-size: 2rem;
-      }
-
-      .link-btn {
-        font-size: 1.2rem;
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .container {
-        max-width: 500px;
+      .prank-item img {
+        width: 50px;
+        height: 50px;
       }
     }
   </style>
@@ -107,20 +115,57 @@
     <div class="profile">
       <img src="img/S__74661890.jpg" alt="Profile Image" class="profile-img" />
       <h1>แพงเชา</h1>
-      <p>คลิกที่ลิงก์ด้านล่างเพื่อดูข้อมูลเพิ่มเติม</p>
+      <p>คลิกที่ลิงก์ด้านล่างเพื่อดูข้อมูลเพิ่มเติมค้าบบบ</p>
     </div>
 
     <div class="links">
       <a href="http://www.youtube.com/@creamchannel9158" target="_blank" class="link-btn">
         📺 ช่อง YouTube พะแพง
       </a>
-      <a href="https://ezdn.app/Panisa" target="_blank" class="link-btn">
-        💰 โดเนทผ่านลิงค์นี้ อ่านขั้นตอนการโดเนทให้ครบถ้วนเด้อ
-      </a>
+    
       <a href="https://line.me/R/ti/p/~721xykuw" target="_blank" class="link-btn">
-        💬 แอดไลน์เพื่อดูดวงเชิงลึก
+        💬 แอดไลน์เพื่อดูดวงเชิงลึกกับพะแพง
       </a>
+    
+      <a href="https://ezdn.app/Panisa" target="_blank" class="link-btn">
+        💰 โดเนทแกล้งผ่านลิงค์นี้ อ่านขั้นตอนการโดเนทให้ครบถ้วนเด้ออ
+      </a>
+    
+      <button class="link-btn" onclick="togglePranks()">📋 รายการแกล้ง</button>
+    </div>
+    
+
+    <div class="prank-list" id="prankList">
+      <!-- รายการแกล้ง 20 รายการ -->
+      <!-- เปลี่ยนรูป/ข้อความตามต้องการ -->
+      <div class="prank-item"><img src="https://via.placeholder.com/60" /><span>แกล้งโทรปลุกตอนตี 3</span></div>
+      <div class="prank-item"><img src="https://via.placeholder.com/60" /><span>แกล้งส่งของปลอม</span></div>
+      <div class="prank-item"><img src="https://via.placeholder.com/60" /><span>แกล้งบอกถูกหวย</span></div>
+      <div class="prank-item"><img src="https://via.placeholder.com/60" /><span>แกล้งทำมือถือหาย</span></div>
+      <div class="prank-item"><img src="https://via.placeholder.com/60" /><span>แกล้งปิดเฟสแล้วหายไป</span></div>
+      <div class="prank-item"><img src="https://via.placeholder.com/60" /><span>แกล้งบอกจะย้ายประเทศ</span></div>
+      <div class="prank-item"><img src="https://via.placeholder.com/60" /><span>แกล้งงอนแล้วหายตัว</span></div>
+      <div class="prank-item"><img src="https://via.placeholder.com/60" /><span>แกล้งส่งข้อความลับ</span></div>
+      <div class="prank-item"><img src="https://via.placeholder.com/60" /><span>แกล้งขอยืมเงิน</span></div>
+      <div class="prank-item"><img src="https://via.placeholder.com/60" /><span>แกล้งเป็นแฟนเก่า</span></div>
+      <div class="prank-item"><img src="https://via.placeholder.com/60" /><span>แกล้งบอกว่าโดนจับ</span></div>
+      <div class="prank-item"><img src="https://via.placeholder.com/60" /><span>แกล้งทำเป็นลืมวันเกิด</span></div>
+      <div class="prank-item"><img src="https://via.placeholder.com/60" /><span>แกล้งเป็นคนแปลกหน้า</span></div>
+      <div class="prank-item"><img src="https://via.placeholder.com/60" /><span>แกล้งว่าติดเกณฑ์ทหาร</span></div>
+      <div class="prank-item"><img src="https://via.placeholder.com/60" /><span>แกล้งโทรหาแบบไม่พูด</span></div>
+      <div class="prank-item"><img src="https://via.placeholder.com/60" /><span>แกล้งปลอมเอกสาร</span></div>
+      <div class="prank-item"><img src="https://via.placeholder.com/60" /><span>แกล้งโดนไล่ออก</span></div>
+      <div class="prank-item"><img src="https://via.placeholder.com/60" /><span>แกล้งย้ายโรงเรียน</span></div>
+      <div class="prank-item"><img src="https://via.placeholder.com/60" /><span>แกล้งแต่งงานปลอม</span></div>
+      <div class="prank-item"><img src="https://via.placeholder.com/60" /><span>แกล้งสั่งอาหารแล้วไม่ไปรับ</span></div>
     </div>
   </div>
+
+  <script>
+    function togglePranks() {
+      const list = document.getElementById('prankList');
+      list.style.display = list.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
 </body>
 </html>
