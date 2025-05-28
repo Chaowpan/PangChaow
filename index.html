@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ลิงก์ของพะแพง</title>
+
+  <!-- ฟอนต์ Kanit -->
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet" />
+
   <style>
     * {
       box-sizing: border-box;
@@ -12,23 +16,42 @@
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Prompt', sans-serif;
-      background: linear-gradient(to bottom, #fceabb, #f8b500);
+      font-family: 'Kanit', sans-serif;
+      background: linear-gradient(to bottom right, #5A827E, #41726D);
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
+      color: #e0e0e0;
     }
 
     .container {
-      background-color: white;
-      padding: 2rem;
-      border-radius: 16px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-      text-align: center;
-      width: 90%;
-      max-width: 500px;
-    }
+  background-color: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 90%;
+  max-width: 500px;
+  color: #333;
+
+  /* ลวดลายเส้นมินิมอล แบบหนาและเว้นระยะห่าง */
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      rgba(0,0,0,0.07),  /* สีเส้นเข้มขึ้นเล็กน้อย */
+      rgba(0,0,0,0.07) 2px,  /* ความหนาเส้น 2px */
+      transparent 2px,
+      transparent 20px,
+
+      rgba(0,0,0,0.05) 20px,  /* เส้นสั้นโปร่งกว่า */
+      rgba(0,0,0,0.05) 22px,
+      transparent 22px,
+      transparent 40px
+    );
+}
+
+
 
     .profile-img {
       width: 120px;
@@ -36,35 +59,44 @@
       border-radius: 50%;
       object-fit: cover;
       margin-bottom: 1rem;
+      border: 4px solid #5A827E;
     }
+
+    
 
     h1 {
       margin: 0.5rem 0;
       font-size: 1.8rem;
-      color: #333;
+      color: #3f665f;
+      font-weight: 600;
     }
 
     p {
       color: #666;
       font-size: 1rem;
       margin-bottom: 1.5rem;
+      font-weight: 300;
     }
 
     .link-btn {
       display: block;
       margin: 0.5rem 0;
       padding: 1rem;
-      background-color: #f8b500;
+      background-color: #5A827E;
       color: white;
       text-decoration: none;
       border-radius: 12px;
       font-size: 1.1rem;
-      transition: background-color 0.3s;
+      transition: background-color 0.3s, box-shadow 0.3s;
       cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      border: none;
+      font-weight: 500;
     }
 
     .link-btn:hover {
-      background-color: #e09e00;
+      background-color: #41726D;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
     }
 
     .button-group {
@@ -109,9 +141,27 @@
       object-fit: cover;
     }
 
+    .donate-btn {
+      background-color: #5A827E;
+      color: white;
+      padding: 0.3rem 0.6rem;
+      border-radius: 8px;
+      text-decoration: none;
+      margin-left: 1rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
+    }
+
+    .donate-btn:hover {
+      background-color: #41726D;
+    }
+
+
     .prank-item span {
       font-size: 1rem;
-      color: #333;
+      color: #3f665f;
+      font-weight: 400;
     }
 
     @media (max-width: 480px) {
@@ -136,20 +186,21 @@
     <div class="profile">
       <img src="img/S__74661890.jpg" alt="Profile Image" class="profile-img" />
       <h1>แพงเชา</h1>
-      <p>คลิกที่ลิงก์ด้านล่างเพื่อดูข้อมูลเพิ่มเติมค้าบบบ</p>
     </div>
 
     <div class="links">
-      <a href="http://www.youtube.com/@creamchannel9158" target="_blank" class="link-btn">
-        📺 ช่อง YouTube พะแพง
+      <a href="http://www.youtube.com/@creamchannel9158" target="_blank" class="link-btn" style="display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" alt="YouTube Logo" style="height: 24px;">
+        <span>ช่องพะแพง</span>
       </a>
 
-      <a href="https://line.me/R/ti/p/~@721xykuw" target="_blank" class="link-btn">
-        💬 แอดไลน์เพื่อดูดวงเชิงลึกกับพะแพง
+      <a href="https://line.me/R/ti/p/~@721xykuw" target="_blank" class="link-btn" style="display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/LINE_logo.svg" alt="LINE Logo" style="height: 24px;">
+        <span>แอดไลน์เพื่อดูดวงเชิงลึกกับพะแพง</span>
       </a>
 
       <a href="https://ezdn.app/Panisa" target="_blank" class="link-btn">
-        💰 โดเนทแกล้งผ่านลิงค์นี้ อ่านขั้นตอนการโดเนทให้ครบถ้วนเด้ออ
+        💸 โดเนทแกล้งผ่านลิงค์นี้เด้อออ
       </a>
 
       <div class="button-group">
@@ -161,27 +212,56 @@
     <!-- รายการแกล้ง -->
     <div class="prank-list" id="prankList">
       <div class="prank-item"><img src="img/d56945782445b0b8c8658ed44f894c7b~tplv-obj.webp" /><span>รักนะคนส่งใจส้ม</span></div>
-      <div class="prank-item"><img src="img/3f02fa9594bd1495ff4e8aa5ae265eef~tplv-obj.webp" /><span>ดีดมะกอกผู้หญิง 1 ที / โด 1 บาท</span></div>
-      <div class="prank-item"><img src="img/802a21ae29f9fae5abe3693de9f874bd~tplv-obj.webp" /><span>ดีดมะกอกผู้ชาย 1 ที / โด 1 บาท</span></div>
-      <div class="prank-item"><img src="img/a4c4dc437fd3a6632aba149769491f49.png~tplv-obj.webp" /><span>หอมแก้ม / โด 1 บาท</span></div>
+      <div class="prank-item"><img src="img/3f02fa9594bd1495ff4e8aa5ae265eef~tplv-obj.webp" /><span>ดีดมะกอกผู้หญิง 1 ที / โดเนท 1 บาท</span></div>
+      <div class="prank-item"><img src="img/802a21ae29f9fae5abe3693de9f874bd~tplv-obj.webp" /><span>ดีดมะกอกผู้ชาย 1 ที / โดเนท1 บาท</span></div>
+      <div class="prank-item"><img src="img/a4c4dc437fd3a6632aba149769491f49.png~tplv-obj.webp" /><span>หอมแก้ม / โดเนท 1 บาท</span></div>
       <div class="prank-item"><img src="https://via.placeholder.com/60" /><span>แกล้งปิดเฟสแล้วหายไป</span></div>
-      <!-- เพิ่มรายการอื่น ๆ ตามต้องการ -->
     </div>
 
     <!-- รายการดูดวง -->
     <div class="prank-listtwo" id="prankListtwo">
-      <div class="prank-item"><img src="img/d56945782445b0b8c8658ed44f894c7b~tplv-obj.webp" /><span>รักนะคนส่งใจส้ม</span></div>
-      <div class="prank-item"><img src="img/a4c4dc437fd3a6632aba149769491f49.png~tplv-obj.webp" /><span>ถามได้ 1 คำถาม / โด 5 บาท</span></div>
-      <div class="prank-item"><img src="https://via.placeholder.com/60" /><span>แกล้งปิดเฟสแล้วหายไป</span></div>
-      <!-- เพิ่มรายการอื่น ๆ ตามต้องการ -->
+    <div class="prank-item">
+      <img src="img/d56945782445b0b8c8658ed44f894c7b~tplv-obj.webp" />
+      <span>รักนะคนส่งใจส้ม</span>
     </div>
+
+    <div class="prank-item">
+      <img src="img/a4c4dc437fd3a6632aba149769491f49.png~tplv-obj.webp" />
+      <span>ถามได้ 1 คำถาม / โด 5 บาท</span>
+      <a href="https://ezdn.app/Panisa" target="_blank" class="donate-btn">โดเนท</a>
+    </div>
+
+    <div class="prank-item">
+      <img src="img/9bae1948b9dd06e3c7d3bafff8a38749.png~tplv-obj.webp" />
+      <span>ถามได้ 2 คำถาม / โด 9 บาท</span>
+      <a href="https://ezdn.app/Panisa" target="_blank" class="donate-btn">โดเนท</a>
+    </div>
+
+    <div class="prank-item">
+      <img src="img/4e7ad6bdf0a1d860c538f38026d4e812~tplv-obj.webp" />
+      <span>ถามได้ 8 คำถาม / โด 30 บาท</span>
+      <a href="https://ezdn.app/Panisa" target="_blank" class="donate-btn">โดเนท</a>
+    </div>
+
+    <div class="prank-item">
+      <img src="img/6cd022271dc4669d182cad856384870f~tplv-obj.webp" />
+      <span>ถามได้ จนจบไลฟ์ / โด 100 บาท</span>
+      <a href="https://ezdn.app/Panisa" target="_blank" class="donate-btn">โดเนท</a>
+    </div>
+
+    <div class="prank-item">
+      <img src="img/3d136834fe9964927d6b30499a68b741.png~tplv-obj.webp" />
+      <span>ลัดคิว / โด 199 บาท</span>
+      <a href="https://ezdn.app/Panisa" target="_blank" class="donate-btn">โดเนท</a>
+    </div>
+</div>
+
   </div>
 
   <script>
     function togglePranks() {
       const list = document.getElementById('prankList');
       const listTwo = document.getElementById('prankListtwo');
-
       list.classList.toggle('show');
       listTwo.classList.remove('show');
     }
@@ -189,7 +269,6 @@
     function togglePrankstwo() {
       const list = document.getElementById('prankList');
       const listTwo = document.getElementById('prankListtwo');
-
       listTwo.classList.toggle('show');
       list.classList.remove('show');
     }
