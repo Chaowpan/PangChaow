@@ -26,32 +26,26 @@
     }
 
     .container {
-  background-color: white;
-  padding: 2rem;
-  border-radius: 16px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  width: 90%;
-  max-width: 500px;
-  color: #333;
-
-  /* ลวดลายเส้นมินิมอล แบบหนาและเว้นระยะห่าง */
-  background-image:
-    repeating-linear-gradient(
-      45deg,
-      rgba(0,0,0,0.07),  /* สีเส้นเข้มขึ้นเล็กน้อย */
-      rgba(0,0,0,0.07) 2px,  /* ความหนาเส้น 2px */
-      transparent 2px,
-      transparent 20px,
-
-      rgba(0,0,0,0.05) 20px,  /* เส้นสั้นโปร่งกว่า */
-      rgba(0,0,0,0.05) 22px,
-      transparent 22px,
-      transparent 40px
-    );
-}
-
-
+      background-color: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 90%;
+      max-width: 500px;
+      color: #333;
+      background-image: repeating-linear-gradient(
+        45deg,
+        rgba(0,0,0,0.07),
+        rgba(0,0,0,0.07) 2px,
+        transparent 2px,
+        transparent 20px,
+        rgba(0,0,0,0.05) 20px,
+        rgba(0,0,0,0.05) 22px,
+        transparent 22px,
+        transparent 40px
+      );
+    }
 
     .profile-img {
       width: 120px;
@@ -61,8 +55,6 @@
       margin-bottom: 1rem;
       border: 4px solid #5A827E;
     }
-
-    
 
     h1 {
       margin: 0.5rem 0;
@@ -131,6 +123,7 @@
       margin: 1rem 0;
       border-bottom: 1px solid #eee;
       padding-bottom: 0.5rem;
+      flex-wrap: wrap;
     }
 
     .prank-item img {
@@ -141,13 +134,20 @@
       object-fit: cover;
     }
 
+    .prank-item span {
+      font-size: 1rem;
+      color: #3f665f;
+      font-weight: 400;
+      flex-grow: 1;
+    }
+
     .donate-btn {
       background-color: #5A827E;
       color: white;
       padding: 0.3rem 0.6rem;
       border-radius: 8px;
       text-decoration: none;
-      margin-left: 1rem;
+      margin-left: auto;
       font-size: 0.9rem;
       font-weight: 500;
       transition: background-color 0.3s ease;
@@ -157,11 +157,21 @@
       background-color: #41726D;
     }
 
+    @media (min-width: 600px) {
+      .prank-item {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
 
-    .prank-item span {
-      font-size: 1rem;
-      color: #3f665f;
-      font-weight: 400;
+      .prank-item span {
+        margin-bottom: 0;
+      }
+
+      .donate-btn {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+      }
     }
 
     @media (max-width: 480px) {
@@ -174,9 +184,24 @@
         padding: 0.8rem;
       }
 
+      .prank-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
       .prank-item img {
         width: 50px;
         height: 50px;
+      }
+
+      .prank-item span {
+        font-size: 0.95rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .donate-btn {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.7rem;
       }
     }
   </style>
@@ -199,9 +224,7 @@
         <span>แอดไลน์เพื่อดูดวงเชิงลึกกับพะแพง</span>
       </a>
 
-      <a href="https://ezdn.app/Panisa" target="_blank" class="link-btn">
-        💸 โดเนทแกล้งผ่านลิงค์นี้เด้อออ
-      </a>
+      <a href="https://ezdn.app/Panisa" target="_blank" class="link-btn">💸 โดเนทแกล้งผ่านลิงค์นี้เด้อออ</a>
 
       <div class="button-group">
         <button class="link-btn" onclick="togglePranks()">📋 รายการส่งของขวัญแกล้ง</button>
@@ -211,51 +234,58 @@
 
     <!-- รายการแกล้ง -->
     <div class="prank-list" id="prankList">
-      <div class="prank-item"><img src="img/d56945782445b0b8c8658ed44f894c7b~tplv-obj.webp" /><span>รักนะคนส่งใจส้ม</span></div>
-      <div class="prank-item"><img src="img/3f02fa9594bd1495ff4e8aa5ae265eef~tplv-obj.webp" /><span>ดีดมะกอกผู้หญิง 1 ที / โดเนท 1 บาท</span></div>
-      <div class="prank-item"><img src="img/802a21ae29f9fae5abe3693de9f874bd~tplv-obj.webp" /><span>ดีดมะกอกผู้ชาย 1 ที / โดเนท1 บาท</span></div>
-      <div class="prank-item"><img src="img/a4c4dc437fd3a6632aba149769491f49.png~tplv-obj.webp" /><span>หอมแก้ม / โดเนท 1 บาท</span></div>
-      <div class="prank-item"><img src="https://via.placeholder.com/60" /><span>แกล้งปิดเฟสแล้วหายไป</span></div>
+      <div class="prank-item">
+        <img src="img/d56945782445b0b8c8658ed44f894c7b~tplv-obj.webp" />
+        <span>รักนะคนส่งใจส้ม</span>
+        <a href="https://ezdn.app/Panisa" target="_blank" class="donate-btn">โดเนท</a>
+      </div>
+      <div class="prank-item">
+        <img src="img/3f02fa9594bd1495ff4e8aa5ae265eef~tplv-obj.webp" />
+        <span>ดีดมะกอกผู้หญิง 1 ที / โดเนท 1 บาท</span>
+        <a href="https://ezdn.app/Panisa" target="_blank" class="donate-btn">โดเนท</a>
+      </div>
+      <div class="prank-item">
+        <img src="img/802a21ae29f9fae5abe3693de9f874bd~tplv-obj.webp" />
+        <span>ดีดมะกอกผู้ชาย 1 ที / โดเนท 1 บาท</span>
+        <a href="https://ezdn.app/Panisa" target="_blank" class="donate-btn">โดเนท</a>
+      </div>
+      <div class="prank-item">
+        <img src="img/a4c4dc437fd3a6632aba149769491f49.png~tplv-obj.webp" />
+        <span>หอมแก้ม / โดเนท 5 บาท</span>
+        <a href="https://ezdn.app/Panisa" target="_blank" class="donate-btn">โดเนท</a>
+      </div>
+      <div class="prank-item">
+        <img src="img/e033c3f28632e233bebac1668ff66a2f.png~tplv-obj.webp" />
+        <span>เต้นเพลงเรือกล้วย / โดเนท 10 บาท</span>
+        <a href="https://ezdn.app/Panisa" target="_blank" class="donate-btn">โดเนท</a>
+      </div>
+      <div class="prank-item">
+        <img src="img/eb77ead5c3abb6da6034d3cf6cfeb438~tplv-obj.webp" />
+        <span>เต้นเพลงกฎไตรรัก / โดเนท 10 บาท</span>
+        <a href="https://ezdn.app/Panisa" target="_blank" class="donate-btn">โดเนท</a>
+      </div>
+      <div class="prank-item">
+        <img src="img/e9fa40e9f4967434064fd92aa915cb43.png~tplv-obj.webp" />
+        <span>เต้นเพลงอย่าตีๆกันเด้อ / โดเนท 10 บาท</span>
+        <a href="https://ezdn.app/Panisa" target="_blank" class="donate-btn">โดเนท</a>
+      </div>
+      <div class="prank-item">
+        <img src="img/d21610bf92ff47696df046b33851671b.png~tplv-obj.webp" />
+        <span>เต้นเพลงเธอโยกอยู่ในฟลอ / โดเนท 10 บาท</span>
+        <a href="https://ezdn.app/Panisa" target="_blank" class="donate-btn">โดเนท</a>
+      </div>
     </div>
+
 
     <!-- รายการดูดวง -->
     <div class="prank-listtwo" id="prankListtwo">
-    <div class="prank-item">
-      <img src="img/d56945782445b0b8c8658ed44f894c7b~tplv-obj.webp" />
-      <span>รักนะคนส่งใจส้ม</span>
+      <div class="prank-item"><img src="img/d56945782445b0b8c8658ed44f894c7b~tplv-obj.webp" /><span>รักนะคนส่งใจส้ม</span></div>
+      <div class="prank-item"><img src="img/a4c4dc437fd3a6632aba149769491f49.png~tplv-obj.webp" /><span>ถามได้ 1 คำถาม / โดเนท 5 บาท</span><a href="https://ezdn.app/Panisa" target="_blank" class="donate-btn">โดเนท</a></div>
+      <div class="prank-item"><img src="img/9bae1948b9dd06e3c7d3bafff8a38749.png~tplv-obj.webp" /><span>ถามได้ 2 คำถาม / โดเนท 9 บาท</span><a href="https://ezdn.app/Panisa" target="_blank" class="donate-btn">โดเนท</a></div>
+      <div class="prank-item"><img src="img/4e7ad6bdf0a1d860c538f38026d4e812~tplv-obj.webp" /><span>ถามได้ 8 คำถาม / โดเนท 30 บาท</span><a href="https://ezdn.app/Panisa" target="_blank" class="donate-btn">โดเนท</a></div>
+      <div class="prank-item"><img src="img/6cd022271dc4669d182cad856384870f~tplv-obj.webp" /><span>ถามได้จนจบไลฟ์ / โดเนท 100 บาท</span><a href="https://ezdn.app/Panisa" target="_blank" class="donate-btn">โดเนท</a></div>
+      <div class="prank-item"><img src="img/3d136834fe9964927d6b30499a68b741.png~tplv-obj.webp" /><span>ลัดคิว / โดเนท 199 บาท</span><a href="https://ezdn.app/Panisa" target="_blank" class="donate-btn">โดเนท</a></div>
     </div>
-
-    <div class="prank-item">
-      <img src="img/a4c4dc437fd3a6632aba149769491f49.png~tplv-obj.webp" />
-      <span>ถามได้ 1 คำถาม / โด 5 บาท</span>
-      <a href="https://ezdn.app/Panisa" target="_blank" class="donate-btn">โดเนท</a>
-    </div>
-
-    <div class="prank-item">
-      <img src="img/9bae1948b9dd06e3c7d3bafff8a38749.png~tplv-obj.webp" />
-      <span>ถามได้ 2 คำถาม / โด 9 บาท</span>
-      <a href="https://ezdn.app/Panisa" target="_blank" class="donate-btn">โดเนท</a>
-    </div>
-
-    <div class="prank-item">
-      <img src="img/4e7ad6bdf0a1d860c538f38026d4e812~tplv-obj.webp" />
-      <span>ถามได้ 8 คำถาม / โด 30 บาท</span>
-      <a href="https://ezdn.app/Panisa" target="_blank" class="donate-btn">โดเนท</a>
-    </div>
-
-    <div class="prank-item">
-      <img src="img/6cd022271dc4669d182cad856384870f~tplv-obj.webp" />
-      <span>ถามได้ จนจบไลฟ์ / โด 100 บาท</span>
-      <a href="https://ezdn.app/Panisa" target="_blank" class="donate-btn">โดเนท</a>
-    </div>
-
-    <div class="prank-item">
-      <img src="img/3d136834fe9964927d6b30499a68b741.png~tplv-obj.webp" />
-      <span>ลัดคิว / โด 199 บาท</span>
-      <a href="https://ezdn.app/Panisa" target="_blank" class="donate-btn">โดเนท</a>
-    </div>
-</div>
-
   </div>
 
   <script>
